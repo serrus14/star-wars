@@ -1,0 +1,43 @@
+<div class="films-page">
+  <div class="films-toolbar flex-gap">
+    <select id="sortBySelect" class="form-select default-bg-colors">
+      <option value="">Sort</option>
+      <option {{#if sort.isSortedByReleaseDateASC}}selected{{/if}} value="sortByEpReleaseDateASC">
+        Sort by release date ASC
+      </option>
+      <option {{#if sort.isSortedByReleaseDateDESC}}selected{{/if}} value="sortByEpReleaseDateDESC">
+        Sort by release date DESC
+      </option>
+      <option {{#if sort.isSortedByEpNumASC}}selected{{/if}} value="sortedByEpNumASC">
+        Sort by episode number ASC
+      </option>
+      <option {{#if sort.isSortedByEpNumDESC}}selected{{/if}} value="sortedByEpNumDESC">
+        Sort by episode number DESC
+      </option>
+    </select>
+    <div class="btn-group">
+      <button id="viewModeListBtn" class="btn btn-outline-primary{{#if viewMode.isViewModeEqualsList}} active{{/if}}">
+        <i class="bi bi-list-ul"></i>
+      </button>
+      <button id="viewModeCardsBtn" class="btn btn-outline-primary{{#if viewMode.isViewModeEqualsCards}} active{{/if}}">
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+      </button>
+    </div>
+  </div>
+  {{#if film}}
+    {{#if viewMode.isViewModeEqualsCards}}
+      <div class="film-cards">
+        {{#each film}}{{> filmPreviewCard film=this}}{{/each}}
+      </div>
+    {{/if}}
+    
+    {{#if viewMode.isViewModeEqualsList}}
+      <ul class="list-group">
+        {{#each film}}{{> filmListItem film=this}}{{/each}}
+      </ul>
+    {{/if}}
+  {{else}}
+    <h5 class="default-txt-color">No films</h5>
+  {{/if}}
+</div>
+

@@ -1,0 +1,44 @@
+<header class="py-3 shadow-lg high-z-index">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <a href="/" class="d-flex align-items-center mb-0 text-dark text-decoration-none">
+      <i class="bi bi-film fs-3 me-2 text-primary"></i>
+      <span class="default-txt-color fs-4">Films</span>
+    </a>
+
+    {{#if user}}
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <button id="filmsBtn" class="nav-link{{#if isCurrentPageFilms}} active{{/if}}">Films</button>
+        </li>
+        <li class="nav-item">
+          <button id="favoritesBtn" class="nav-link{{#if isCurrentPageFavorites}} active{{/if}}">Favorites</button>
+        </li>
+      </ul>
+    {{/if}}
+
+    {{#unless user}}
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <button id="loginBtn" class="nav-link {{#if isCurrentPageLogin}} active{{/if}}">Login</button>
+        </li>
+        <li class="nav-item">
+          <button id="registerBtn" class="nav-link {{#if isCurrentPageRegister}} active{{/if}}">Register</button>
+        </li>
+      </ul>
+    {{/unless}}
+
+    {{#if user}}
+      <div class="header-user-section">
+        <span>{{user.login}}</span>
+
+        {{#if user.avatarUrl}}
+          <img src="{{user.avatarUrl}}" class="avatar" data-bs-toggle="modal" href="#logoutModal" />
+        {{/if}}
+
+        {{#unless user.avatarUrl}}
+          <i class="bi bi-person-circle text-primary" data-bs-toggle="modal" href="#logoutModal"></i>
+        {{/unless}}
+      </div>
+    {{/if}}
+  </div>
+</header>

@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center align-items-center w-100 h-100">
+  <div class="card default-bg-colors auth-container">
+    <div class="card-body">
+      <h5 class="card-title mb-3">{{title}}</h5>
+      <div class="d-flex flex-column flex-gap">
+        {{#if loginFailed}}
+          <div class="alert alert-danger mb-2" role="alert">
+            Wrong login/password
+          </div>
+        {{/if}}
+
+        {{#if registeredSuccessfully}}
+          <div class="alert alert-success" role="alert">
+            Account created
+          </div>
+        {{/if}}
+
+        {{#if registerFailedMessage}}
+          <div class="alert alert-danger mb-2" role="alert">
+            {{registerFailedMessage}}
+          </div>
+        {{/if}}
+
+        <form class="m-0" method="post">
+          <div class="input-group mb-2">
+            <input
+              name="login"
+              type="text"
+              class="form-control default-bg-colors default-txt-color"
+              placeholder="Username"
+              autocomplete="off"
+            />
+          </div>
+          <div class="input-group mb-2{{#if isCurrentPageLogin}} mb-3{{/if}}">
+            <input
+              name="password"
+              type="password"
+              class="form-control default-bg-colors default-txt-color"
+              placeholder="Password"
+              autocomplete="off"
+            />
+          </div>
+          {{#if isCurrentPageRegister}}
+            <div class="input-group mb-3">
+              <input
+                name="avatarUrl"
+                type="password"
+                class="form-control default-bg-colors default-txt-color"
+                placeholder="Avatar url"
+                autocomplete="off"
+              />
+            </div>
+          {{/if}}
+          <button type="submit" class="btn btn-primary">{{submitButtonTitle}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

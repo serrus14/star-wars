@@ -1,0 +1,10 @@
+<li
+  class="list-group-item list-group-item-action default-bg-colors_hoverable shadow-md cursor-pointer"
+  onclick="setCurrentRoute('/film/{{film.episode_id}}')"
+>
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1"><span class="badge bg-dark text-white">{{film.episode_id}}</span> {{film.title}}</h5>
+    <small>{{film.release_date}}</small>
+  </div>
+  <p class="mb-1">Director {{film.director}}</p>
+</li>

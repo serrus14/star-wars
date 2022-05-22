@@ -1,0 +1,47 @@
+<div class="card film-info default-bg-colors mb-3">
+  <div class="row g-0">
+    <img src="/images/{{film.episode_id}}.webp" class="img-fluid rounded-start" />
+    <div class="col-md">
+      <div class="card-body">
+        <div class="d-flex align-items-center flex-gap fs-5 mb-2">
+          <span class="badge bg-primary text-white">{{film.episode_id}}</span>
+          <h5 class="card-title m-0">{{film.title}}</h5>
+          <form class="m-0" method="post">
+            <input value="{{film.episode_id}}" name="filmId" hidden />
+            {{#if film.isFavorited}}
+              <button type="submit" class="favorite-btn" name="removeFromFavorite">
+                <i class="bi bi-star-fill text-warning"></i>
+              </button>
+            {{else}}
+              <button type="submit" class="favorite-btn" name="addToFavorite">
+                <i class="bi bi-star text-warning fs-5"></i>
+              </button>
+            {{/if}}
+          </form>
+        </div>
+        <p class="card-text">{{film.opening_crawl}}</p>
+        <p class="card-text"><small>{{film.release_date}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card default-bg-colors">
+  <div class="card-body">
+    <h5 class="card-title mb-3">Characters</h5>
+    <div class="d-flex flex-column flex-gap">
+      <div id="charList" class="char-list overflow-auto pe-2" style="max-height: 475px;"></div>
+      <div id="charsLoader" class="d-flex justify-content-center d-none">
+        <div class="spinner-border text-primary">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <button id="loadMoreBtn" class="btn btn-primary d-none">Load more</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const charUrls = "{{film.characters}}";
+</script>
+<script src="/js/client-film-page.js"></script>

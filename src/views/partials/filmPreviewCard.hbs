@@ -1,0 +1,7 @@
+<div class="card film-card text-white shadow-md" onclick="setCurrentRoute('/film/{{film.episode_id}}')">
+  <img src="images/{{film.episode_id}}.webp" class="card-img" />
+  <div class="card-img-overlay">
+    <h5 class="card-title"><span class="badge bg-primary text-white">{{film.episode_id}}</span> {{film.title}}</h5>
+    <p class="card-text">{{film.release_date}}</p>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center w-100">
+  <div class="card default-bg-colors auth-container">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Login</h5>
+      <div class="d-flex flex-column flex-gap">
+        {{#if loginFailed}}
+          <div class="alert alert-danger mb-2" role="alert">
+            Wrong login/password
+          </div>
+        {{/if}}
+        <form class="m-0" id="loginForm">
+          <div class="input-group mb-2">
+            <input type="text" class="form-control default-bg-colors default-txt-color" placeholder="Username" />
+          </div>
+          <div class="input-group mb-2">
+            <input type="password" class="form-control default-bg-colors default-txt-color" placeholder="Password" />
+          </div>
+          <button type="button" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
