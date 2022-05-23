@@ -21,10 +21,6 @@ const handleButtonClick = (btn, handler, enableReload) => defaultEventHandler(bt
 const handleSelectChange = (select, handler, enableReload) =>
   defaultEventHandler(select, 'change', handler, enableReload);
 
-const addToFavorites = filmId =>
-  setFavoriteIds(getCookie('favoriteIds')?.length ? [...getFavoriteIds('favoriteIds'), filmId] : [filmId]);
-const removeFromFavorites = filmId => setFavoriteIds(getFavoriteIds('favoriteIds').filter(fId => fId != filmId));
-
 handleButtonClick(lightModeBtn, () => setCookie('isDarkMode', ''));
 handleButtonClick(darkModeBtn, () => setCookie('isDarkMode', 'true'));
 
