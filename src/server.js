@@ -9,8 +9,6 @@ const { initAppState } = require('./server-state');
 const { dbConnectionUrl } = require('./server-constants');
 const { getRequestCookies } = require('./server-utils');
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-
 createConnection({
   type: 'postgres',
   url: dbConnectionUrl,
